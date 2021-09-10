@@ -4,7 +4,7 @@
 
 搬运自[xuthus5/HeCaiYun](https://github.com/xuthus5/HeCaiYun)，改为github action版本
 
-需要自行在`.github/workflows/main.yml`添加定时任务
+每天0点/12点各运行一次
 
 ## Secret
 
