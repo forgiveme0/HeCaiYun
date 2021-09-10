@@ -135,13 +135,13 @@ def run():
 
     resp = json.loads(requests.post(target, headers=headers, data=payload).text)
     if resp['code'] != 10000:
-        push('和彩云签到', '失败:' + resp['msg'])
+        bark_push('和彩云签到', '失败:' + resp['msg'])
     else:
         content = '签到成功\n月签到天数:' + str(resp['result']['monthDays']) + '\n总积分:' + str(
             resp['result']['totalPoints'])
         if OpenLuckDraw:
             content += '\n\n' + luckDraw()
-        push('和彩云签到', content)
+        bark_push('和彩云签到', content)
 
 
 def main_handler(event, context):
