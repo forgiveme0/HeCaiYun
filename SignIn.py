@@ -25,13 +25,6 @@ def bark_push(title, content):
     print("bark服务启动")
     try:
         response = requests.get('''https://api.day.app/{0}/{1}/{2}'''.format(BARK_TOKEN, title)
-        if response['code'] == 200:
-            print('推送成功！')
-        else:
-            print('推送失败！')
-    except Exception as e:
-        print(e)
-        print('Bark推送失败！')
 
 
 def getEncryptTime():
