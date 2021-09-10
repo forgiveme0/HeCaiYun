@@ -19,7 +19,7 @@ UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) Apple
 
 def push(title, content):
     print(title+"\n"+content)
-    url = "https://www.pushplus.plus/send"
+    url = "https://api.day.app/"
     data = { 'token':BARK_TOKEN, 'title':title, 'content':content }
     # 发送请求
     res = requests.post(url=url, data=data).text
