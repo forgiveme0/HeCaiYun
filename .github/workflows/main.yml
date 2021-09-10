@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Run
-      run: 
+      run: |
         pip3 install requests
         python3 SignIn.py
       env:
