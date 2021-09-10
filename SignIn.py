@@ -27,7 +27,7 @@ def push(title, content):
     print(res)
 
 #改################################################################################################### 
- BARK_PUSH = `https://api.day.app/${process.env.BARK_PUSH}`;
+ BARK_PUSH = `https://api.day.app/${process.env.BARK_PUSH}`
  
  BarkNotify(text, desp, params), //iOS Bark APP
     
