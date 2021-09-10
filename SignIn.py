@@ -24,7 +24,7 @@ def bark_push(title, content):
         return
     print("bark服务启动")
     try:
-        response = requests.get('''https://api.day.app/{0}/{1}/{2}'''.format(BARK_TOKEN, title)
+        response = requests.get('''https://api.day.app/{0}/{1}/{2}'''.format(BARK_TOKEN, title))
 
 
 def getEncryptTime():
