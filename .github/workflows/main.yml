@@ -2,8 +2,10 @@ name: Run
 
 on:
   workflow_dispatch:
-  repository_dispatch:
+  #repository_dispatch:
+  schedule:
    - cron: "0 0 * * *" 
+
 jobs:
   build:
 
