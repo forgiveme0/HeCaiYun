@@ -16,15 +16,22 @@ Cookie = os.environ['COOKIE']  # 抓包Cookie
 Referer = os.environ['REFERER']  # 抓包referer
 UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 MCloudApp/7.6.0"
 
-
-def push(title, content):
+# BARK
+def bark_push(title, content):
     print(title+"\n"+content)
-    url = "${BARK_PUSH}/${encodeURIComponent(text)}/${encodeURIComponent(desp)}?sound=${BARK_SOUND}&group=${BARK_GROUP}&${querystring.stringify(params)}"
-    data = { 'token':BARK_TOKEN, 'title':title, 'content':content }
-    # 发送请求
-    res = requests.post(url=url, data=data).text
-    # 输出发送结果
-    print(res)
+    if not BARK_TOKEN:
+        print("bark服务的bark_token未设置!!\n取消推送")
+        return
+    print("bark服务启动")
+    try:
+        response = requests.get('''https://api.day.app/{0}/{1}/{2}'''.format(BARK_TOKEN, title, quote_plus(content))).json()
+        if response['code'] == 200:
+            print('推送成功！')
+        else:
+            print('推送失败！')
+    except Exception as e:
+        print(e)
+        print('Bark推送失败！')
 
 
 def getEncryptTime():
