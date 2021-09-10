@@ -26,6 +26,54 @@ def push(title, content):
     # 输出发送结果
     print(res)
 
+#改################################################################################################### 
+if (process.env.BARK_PUSH) {
+  if (process.env.BARK_PUSH.indexOf('https') > -1 || process.env.BARK_PUSH.indexOf('http') > -1) {
+    //兼容BARK自建用户
+    BARK_PUSH = process.env.BARK_PUSH;
+  } else {
+    BARK_PUSH = `https://api.day.app/${process.env.BARK_PUSH}`;
+  }
+ 
+ BarkNotify(text, desp, params), //iOS Bark APP
+    
+ function BarkNotify(text, desp, params = {}) {
+  return new Promise(resolve => {
+    if (BARK_PUSH) {
+      const options = {
+        url: `${BARK_PUSH}/${encodeURIComponent(text)}/${encodeURIComponent(desp)}?sound=${BARK_SOUND}&group=${BARK_GROUP}&${querystring.stringify(params)}`,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        timeout
+      }
+      $.get(options, (err, resp, data) => {
+        try {
+          if (err) {
+            console.log('Bark APP发送通知调用API失败！！\n')
+            console.log(err);
+          } else {
+            data = JSON.parse(data);
+            if (data.code === 200) {
+              console.log('Bark APP发送通知消息成功🎉\n')
+            } else {
+              console.log(`${data.message}\n`);
+            }
+          }
+        } catch (e) {
+          $.logErr(e, resp);
+        } finally {
+          resolve();
+        }
+      })
+    } else {
+      console.log('您未提供Bark的APP推送BARK_PUSH，取消Bark推送消息通知🚫\n');
+      resolve()
+    }
+  })
+}
+#改################################################################################################### 
+
 
 def getEncryptTime():
     target = "http://caiyun.feixin.10086.cn:7070/portal/ajax/tools/opRequest.action"
