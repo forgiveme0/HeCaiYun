@@ -11,7 +11,7 @@ from urllib import parse
 import requests
 
 OpenLuckDraw = True if os.getenv("LUCK_DRAW") == 'true' else False  # 是否开启自动幸运抽奖(首次免费, 第二次5积分/次) 不建议开启 否则会导致多次执行时消耗积分
-PUSHPLUS_TOKEN = os.environ['PUSHPLUS_TOKEN']  # PushPlus Token
+BARK_TOKEN = os.environ['BARK_TOKEN']  # BARK Token
 Cookie = os.environ['COOKIE']  # 抓包Cookie
 Referer = os.environ['REFERER']  # 抓包referer
 UA = "Mozilla/5.0 (Linux; Android 10; M2007J3SC Build/QKQ1.191222.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36 MCloudApp/7.6.0"
