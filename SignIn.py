@@ -27,13 +27,7 @@ def push(title, content):
     print(res)
 
 #改################################################################################################### 
-if (process.env.BARK_PUSH) {
-  if (process.env.BARK_PUSH.indexOf('https') > -1 || process.env.BARK_PUSH.indexOf('http') > -1) {
-    //兼容BARK自建用户
-    BARK_PUSH = process.env.BARK_PUSH;
-  } else {
-    BARK_PUSH = `https://api.day.app/${process.env.BARK_PUSH}`;
-  }
+ BARK_PUSH = `https://api.day.app/${process.env.BARK_PUSH}`;
  
  BarkNotify(text, desp, params), //iOS Bark APP
     
