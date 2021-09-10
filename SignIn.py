@@ -27,7 +27,7 @@ def bark_push(title, content):
         response = requests.get('''https://api.day.app/{0}/{1}/{2}'''.format(BARK_TOKEN, title))
 
 
- def getEncryptTime():
+    def getEncryptTime():
     target = "http://caiyun.feixin.10086.cn:7070/portal/ajax/tools/opRequest.action"
     headers = {
         "Host": "caiyun.feixin.10086.cn:7070",
